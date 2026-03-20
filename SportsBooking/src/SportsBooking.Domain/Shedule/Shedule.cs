@@ -14,4 +14,6 @@ public class Schedule
     public bool IsAvailable { get; set; }     // Доступен ли слот для бронирования
     
     public decimal? SpecialPrice { get; set; } // Особая цена (если отличается от базовой)
+
+    public IEnumerable<Booking> Bookings { get; set; } = [];
 }

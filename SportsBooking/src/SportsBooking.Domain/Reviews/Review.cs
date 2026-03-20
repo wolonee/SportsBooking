@@ -8,7 +8,9 @@ public class Review
     
     public Guid UserId { get; set; }
     
-    public string Text { get; set; }
+    public DateTime Date { get; set; } = DateTime.UtcNow;
+    
+    public string Text { get; set; } = String.Empty;
     
     public Reply? Reply { get; set; } = null;
     
