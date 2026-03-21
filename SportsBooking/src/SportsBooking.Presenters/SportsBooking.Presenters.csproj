@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+    <ItemGroup>
+      <ProjectReference Include="..\SportsBooking.Contracts\SportsBooking.Contracts.csproj" />
+      <ProjectReference Include="..\SportsBooking.Domain\SportsBooking.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.9" />
+    </ItemGroup>
+
+</Project>

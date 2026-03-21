@@ -5,25 +5,27 @@ public class Facility
     public Guid Id { get; set; }
     
     public Guid CreatorId { get; set; }
+
+    public bool IsActive { get; set; } = false;
     
-    public string Name { get; set; }
+    public string Name { get; set; } = String.Empty;
     
-    public string Description { get; set; }
+    public string Description { get; set; } = String.Empty;
     
     public decimal Price { get; set; }
     
-    public string Address { get; set; }
+    public string Address { get; set; } = String.Empty;
+
+    public string Contacts { get; set; } = String.Empty;
+
+    public IEnumerable<SportType> SportType { get; set; } = [];
     
-    public List<string> Contacts { get; set; }
+    public required FacilityServices FacilityServices { get; set; }
+
+    public IEnumerable<Guid> Reviews { get; set; } = [];
+
+    public IEnumerable<Guid> Tags { get; set; } = [];
     
-    public List<SportType> SportType { get; set; }
-    
-    public FacilityServices FacilityServices { get; set; }
-    
-    public List<Guid> Reviews { get; set; }
-    
-    public Guid Tags { get; set; }
-    
-    public Guid Shedule { get; set; }
+    public Guid? SheduleId { get; set; }
 }
 
