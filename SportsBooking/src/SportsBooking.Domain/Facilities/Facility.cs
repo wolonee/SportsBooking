@@ -5,6 +5,8 @@ public class Facility
     public Guid Id { get; set; }
     
     public Guid CreatorId { get; set; }
+
+    public bool IsActive { get; set; } = false;
     
     public string Name { get; set; } = String.Empty;
     
@@ -14,7 +16,7 @@ public class Facility
     
     public string Address { get; set; } = String.Empty;
 
-    public IEnumerable<string> Contacts { get; set; } = [];
+    public string Contacts { get; set; } = String.Empty;
 
     public IEnumerable<SportType> SportType { get; set; } = [];
     
@@ -24,6 +26,6 @@ public class Facility
 
     public IEnumerable<Guid> Tags { get; set; } = [];
     
-    public Guid Shedule { get; set; }
+    public Guid? SheduleId { get; set; }
 }
 

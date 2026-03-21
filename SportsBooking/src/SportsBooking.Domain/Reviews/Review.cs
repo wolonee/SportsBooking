@@ -16,3 +16,4 @@ public class Review
     
     public required Rating Rating { get; set; }
 }
+
