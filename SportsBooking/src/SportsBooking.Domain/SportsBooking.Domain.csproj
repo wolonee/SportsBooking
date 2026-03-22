@@ -4,8 +4,4 @@
       <Folder Include="Users\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\SportsBooking.Shared\SportsBooking.Shared.csproj" />
-    </ItemGroup>
-
 </Project>

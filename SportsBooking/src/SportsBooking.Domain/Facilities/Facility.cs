@@ -11,8 +11,8 @@ public class Facility
         decimal price,
         string address,
         string contacts,
-        IEnumerable<SportType> sportType,
-        FacilityServices facilityServices)
+        IEnumerable<SportType> sportTypes,
+        IEnumerable<FacilityServices> facilityServices)
     {
         Id = Guid.NewGuid();
         CreatorId = creatorId;
@@ -21,7 +21,7 @@ public class Facility
         Price = price;
         Address = address;
         Contacts = contacts;
-        SportType = sportType;
+        SportTypes = sportTypes;
         FacilityServices = facilityServices;
     }
     
@@ -41,9 +41,9 @@ public class Facility
 
     public string Contacts { get; set; }
 
-    public IEnumerable<SportType> SportType { get; set; }
+    public IEnumerable<SportType> SportTypes { get; set; }
     
-    public FacilityServices FacilityServices { get; set; }
+    public IEnumerable<FacilityServices> FacilityServices { get; set; }
 
     public IEnumerable<Guid> Reviews { get; set; } = [];
 

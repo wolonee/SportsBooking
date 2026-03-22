@@ -32,7 +32,7 @@ public class FacilityController : ControllerBase
     }
     
     [HttpPost("{id:guid}/review")]
-    public async Task<IActionResult> AddReview([FromRoute] Guid id, [FromBody] CreateReviewDto request,
+    public async Task<IActionResult> AddReview([FromRoute] Guid id, [FromBody] AddReviewDto request,
         CancellationToken cancellationToken)
     {
         return Ok("Review was added");

@@ -1,7 +1,4 @@
-﻿using SportsBooking.Contracts.Others;
-using SportsBooking.Domain.Facilities;
-
-namespace SportsBooking.Contracts;
+﻿namespace SportsBooking.Contracts;
 
 public record CreateFacilityDto(
     Guid CreatorId,
@@ -10,7 +7,7 @@ public record CreateFacilityDto(
     decimal Price,
     string Address,
     string Contacts,
-    IEnumerable<Guid> Tags,
-    IEnumerable<SportType> SportType,
-    FacilityServices FacilityServices
+    IEnumerable<Guid> TagsIds,
+    IEnumerable<int> SportTypeIds,
+    IEnumerable<int> FacilityServicesIds
 );

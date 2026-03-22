@@ -16,6 +16,6 @@ public class CreateFacilityValidator : AbstractValidator<CreateFacilityDto>
         
         RuleFor(facility => facility.Address).NotEmpty().WithMessage("Facility address cannot be empty");
         
-        RuleFor(facility => facility.SportType).NotEmpty().WithMessage("Facility sport type cannot be empty");
+        RuleFor(facility => facility.SportTypeIds).NotEmpty().WithMessage("Facility sport types cannot be empty");
     }
 }
