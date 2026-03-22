@@ -1,4 +1,5 @@
 ﻿using SportsBooking.Application;
+using SportsBooking.Infrastructure.Postgres;
 
 namespace SportsBooking.Web;
 
@@ -9,6 +10,8 @@ public static class DependencyInjection
         services.AddWebDependencies();
         
         services.AddApplication();
+
+        services.AddInfrastructure();
         
         return services;
     }
