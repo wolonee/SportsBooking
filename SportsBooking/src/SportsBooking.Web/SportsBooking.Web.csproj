@@ -10,6 +10,9 @@
     <ItemGroup>
       <ProjectReference Include="..\SportsBooking.Application\SportsBooking.Application.csproj" />
       <ProjectReference Include="..\SportsBooking.Domain\SportsBooking.Domain.csproj" />
+      <ProjectReference Include="..\SportsBooking.Infrastructure.ElasticSearch\SportsBooking.Infrastructure.ElasticSearch.csproj" />
+      <ProjectReference Include="..\SportsBooking.Infrastructure.Postgres\SportsBooking.Infrastructure.Postgres.csproj" />
+      <ProjectReference Include="..\SportsBooking.Infrastructure.S3\SportsBooking.Infrastructure.S3.csproj" />
       <ProjectReference Include="..\SportsBooking.Presenters\SportsBooking.Presenters.csproj" />
     </ItemGroup>
 

@@ -18,6 +18,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsBooking.Contracts", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsBooking.Application", "src\SportsBooking.Application\SportsBooking.Application.csproj", "{4A1185C1-B118-4D28-A72C-1120DEFECCA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsBooking.Infrastructure.Postgres", "src\SportsBooking.Infrastructure.Postgres\SportsBooking.Infrastructure.Postgres.csproj", "{751F9D59-E983-4CFA-BBA7-2C1401C660CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsBooking.Infrastructure.ElasticSearch", "src\SportsBooking.Infrastructure.ElasticSearch\SportsBooking.Infrastructure.ElasticSearch.csproj", "{AC272933-9F55-471C-81C1-DF596A4F0E96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsBooking.Infrastructure.S3", "src\SportsBooking.Infrastructure.S3\SportsBooking.Infrastructure.S3.csproj", "{BEC796CC-6CD1-46F6-8F18-F4EFF2E0E3BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +50,18 @@ Global
 		{4A1185C1-B118-4D28-A72C-1120DEFECCA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A1185C1-B118-4D28-A72C-1120DEFECCA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A1185C1-B118-4D28-A72C-1120DEFECCA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{751F9D59-E983-4CFA-BBA7-2C1401C660CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751F9D59-E983-4CFA-BBA7-2C1401C660CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751F9D59-E983-4CFA-BBA7-2C1401C660CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751F9D59-E983-4CFA-BBA7-2C1401C660CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC272933-9F55-471C-81C1-DF596A4F0E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC272933-9F55-471C-81C1-DF596A4F0E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC272933-9F55-471C-81C1-DF596A4F0E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC272933-9F55-471C-81C1-DF596A4F0E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC796CC-6CD1-46F6-8F18-F4EFF2E0E3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC796CC-6CD1-46F6-8F18-F4EFF2E0E3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC796CC-6CD1-46F6-8F18-F4EFF2E0E3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC796CC-6CD1-46F6-8F18-F4EFF2E0E3BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DA3F938A-500C-473E-850C-2E372D03ED63} = {954E1427-29AF-4F24-A5AB-BDB42CC6669B}
@@ -51,5 +69,8 @@ Global
 		{FC8F57A1-366A-4B1C-8C2D-6AC67B5084F3} = {954E1427-29AF-4F24-A5AB-BDB42CC6669B}
 		{CA79B7B7-A174-496A-B74D-FF8A8A2DEC50} = {954E1427-29AF-4F24-A5AB-BDB42CC6669B}
 		{4A1185C1-B118-4D28-A72C-1120DEFECCA2} = {954E1427-29AF-4F24-A5AB-BDB42CC6669B}
+		{751F9D59-E983-4CFA-BBA7-2C1401C660CE} = {954E1427-29AF-4F24-A5AB-BDB42CC6669B}
+		{AC272933-9F55-471C-81C1-DF596A4F0E96} = {954E1427-29AF-4F24-A5AB-BDB42CC6669B}
+		{BEC796CC-6CD1-46F6-8F18-F4EFF2E0E3BE} = {954E1427-29AF-4F24-A5AB-BDB42CC6669B}
 	EndGlobalSection
 EndGlobal
