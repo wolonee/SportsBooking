@@ -1,6 +1,6 @@
 ﻿
 
-namespace SportsBooking.Contracts;
+namespace SportsBooking.Contracts.Facility;
 
 public record UpdateFacilityDto(
     string Name,

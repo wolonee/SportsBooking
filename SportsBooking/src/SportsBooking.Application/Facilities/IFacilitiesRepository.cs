@@ -1,5 +1,4 @@
-﻿using SportsBooking.Contracts.Others;
-using SportsBooking.Domain.Facilities;
+﻿using SportsBooking.Domain.Facilities;
 
 namespace SportsBooking.Application.Facilities;
 

@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using SportsBooking.Contracts;
+using SportsBooking.Contracts.Facility;
 
 namespace SportsBooking.Application.Facilities;
 

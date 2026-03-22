@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\SportsBooking.Contracts\SportsBooking.Contracts.csproj" />
       <ProjectReference Include="..\SportsBooking.Domain\SportsBooking.Domain.csproj" />
+      <ProjectReference Include="..\SportsBooking.Shared\SportsBooking.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>

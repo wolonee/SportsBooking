@@ -1,4 +1,4 @@
-﻿namespace SportsBooking.Contracts;
+﻿namespace SportsBooking.Contracts.Shedule;
 
 public record UpdateSheduleDto (
     DateTime StartTime, 

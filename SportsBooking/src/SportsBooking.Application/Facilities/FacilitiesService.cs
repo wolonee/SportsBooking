@@ -1,9 +1,14 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.Logging;
+using SportsBooking.Application.Extentions;
+using SportsBooking.Application.Facilities.Exceptions;
+using SportsBooking.Application.Facilities.Exceptions.Fails;
 using SportsBooking.Contracts;
-using SportsBooking.Contracts.Others;
+using SportsBooking.Contracts.Facility;
+using SportsBooking.Contracts.Review;
 using SportsBooking.Domain.Facilities;
 using SportsBooking.Domain.Reviews;
+using SportsBooking.Shared;
 
 namespace SportsBooking.Application.Facilities;
 
@@ -35,14 +40,15 @@ public class FacilitiesService : IFacilitiesService
         var validationResult = await _facilityValidator.ValidateAsync(facilityDto, cancellationToken);
         if (!validationResult.IsValid)
         {
-            throw new Exception("Validation Failed");
+            var errors = validationResult.ToErrors();
+            throw new FacilityValidationException(errors);
         }
         
         // бизнес валидация
         int countUserFacilities = await _facilitiesRepository.GetOpenFacilitiesAsync(facilityDto.CreatorId);
         if (countUserFacilities >= 5)
         {
-            throw new Exception("Count user facilities can't be greater than 5");
+            throw new TooManyFacilitiesException();
         }
         
         var sportTypes = facilityDto.SportTypeIds
@@ -54,7 +60,7 @@ public class FacilitiesService : IFacilitiesService
             .ToList();
         
         // var sportTypes = await _facilitiesRepository.GetAllSportTypeByIds(facilityDto.SportTypeIds);
-
+        
         // создание сущности Facility
         var facility = new Facility(
             facilityDto.CreatorId,
