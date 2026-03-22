@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SportsBooking.Application.Facilities;
-using SportsBooking.Contracts.Others;
 using SportsBooking.Domain.Facilities;
 
 namespace SportsBooking.Infrastructure.Postgres.Repositories;

@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using SportsBooking.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+app.UseExceptionMiddleware();
 
 if (app.Environment.IsDevelopment())
 {

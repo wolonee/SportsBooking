@@ -1,5 +1,3 @@
-using SportsBooking.Contracts.Others;
-
 namespace SportsBooking.Domain.Facilities;
 
 public class Facility
