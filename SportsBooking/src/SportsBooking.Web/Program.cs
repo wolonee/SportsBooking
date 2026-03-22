@@ -2,9 +2,6 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddControllers();
-
 var services = builder.Services;
 
 services.AddSwaggerGen(c =>

@@ -1,4 +1,4 @@
-﻿namespace SportsBooking.Web.Controllers;
+﻿namespace SportsBooking.Presenters.Controllers;
 
 public class ReviewController
 {

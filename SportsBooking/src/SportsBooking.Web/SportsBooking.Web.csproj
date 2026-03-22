@@ -8,6 +8,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\SportsBooking.Application\SportsBooking.Application.csproj" />
       <ProjectReference Include="..\SportsBooking.Domain\SportsBooking.Domain.csproj" />
       <ProjectReference Include="..\SportsBooking.Presenters\SportsBooking.Presenters.csproj" />
     </ItemGroup>

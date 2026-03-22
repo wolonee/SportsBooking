@@ -1,4 +1,4 @@
-namespace SportsBooking.Domain.Facilities;
+namespace SportsBooking.Contracts.Others;
 
 public enum SportType
 {

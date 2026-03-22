@@ -1,5 +1,5 @@
 
-namespace SportsBooking.Domain.Facilities;
+namespace SportsBooking.Domain.Shedule;
 
 public class Schedule
 {

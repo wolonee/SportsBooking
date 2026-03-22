@@ -1,4 +1,4 @@
-﻿using SportsBooking.Domain.Facilities;
+﻿
 
 namespace SportsBooking.Contracts;
 
@@ -8,6 +8,6 @@ public record UpdateFacilityDto(
     decimal Price,
     string Address,
     string Contacts,
-    IEnumerable<SportType> SportType,
-    FacilityServices FacilityServices
+    IEnumerable<Guid> SportTypeIds,
+    IEnumerable<Guid> FacilityServicesIds
 );
