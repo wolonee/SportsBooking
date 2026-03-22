@@ -1,4 +1,4 @@
-namespace SportsBooking.Domain.Facilities;
+namespace SportsBooking.Domain.Shedule;
 
 public enum BookingStatus
 {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SportsBooking.Contracts;
 
-namespace SportsBooking.Web.Controllers;
+namespace SportsBooking.Presenters.Controllers;
 
 [ApiController]
 [Route("[controller]")]
