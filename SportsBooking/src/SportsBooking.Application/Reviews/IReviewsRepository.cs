@@ -1,6 +1,6 @@
 ﻿using SportsBooking.Domain.Reviews;
 
-namespace SportsBooking.Application.Facilities;
+namespace SportsBooking.Application.Reviews;
 
 public interface IReviewsRepository
 {

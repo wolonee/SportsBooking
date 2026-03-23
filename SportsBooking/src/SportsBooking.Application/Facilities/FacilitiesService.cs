@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using SportsBooking.Application.Extentions;
 using SportsBooking.Application.Facilities.Exceptions;
 using SportsBooking.Application.Facilities.Exceptions.Fails;
+using SportsBooking.Application.Reviews;
 using SportsBooking.Contracts;
 using SportsBooking.Contracts.Facility;
 using SportsBooking.Contracts.Review;
@@ -131,6 +132,12 @@ public class FacilitiesService : IFacilitiesService
 
 public interface IFacilitiesService
 {
+    /// <summary>
+    /// Создание вопроса
+    /// </summary>
+    /// <param name="facilityDto">DTO для создания спорт площадки.</param>
+    /// <param name="cancellationToken">Токен отмены асинронной операции.</param>
+    /// <returns>Результат работы метода - либо ID созданной спорт площадки, либо список ошибок.</returns>
     Task<Result<Guid, Failure>> Create(CreateFacilityDto facilityDto, CancellationToken cancellationToken);
     
     Task AddReview(Guid id, AddReviewDto reviewDto, CancellationToken cancellationToken);
