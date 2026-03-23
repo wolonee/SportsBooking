@@ -1,7 +1,11 @@
-﻿namespace SportsBooking.Shared;
+﻿using System.Runtime.CompilerServices;
+
+namespace SportsBooking.Shared;
 
 public record Error
 {
+    public static Error None => new Error(String.Empty, String.Empty, ErrorType.NONE, null);
+    
     public string Code { get; }
     public string Message { get; }
     public ErrorType Type { get; }
@@ -26,6 +30,8 @@ public record Error
     
     public static Error Failure(string? code, string message)
         => new(code ?? "failure", message, ErrorType.FAILURE);
+    
+    public Failure ToFailure() => this;
 }
 
 public enum ErrorType
@@ -33,5 +39,6 @@ public enum ErrorType
     VALIDATION,
     NOT_FOUND,
     FAILURE,
-    CONFLICT
+    CONFLICT,
+    NONE
 }
