@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using SportsBooking.Application.Facilities;
 using SportsBooking.Contracts;
 using SportsBooking.Contracts.Facility;
 using SportsBooking.Contracts.Review;
 using SportsBooking.Contracts.Shedule;
+using SportsBooking.Presenters.ResponseExtentions;
+using SportsBooking.Shared;
 
 namespace SportsBooking.Presenters.Controllers;
 
@@ -10,10 +13,25 @@ namespace SportsBooking.Presenters.Controllers;
 [Route("[controller]")]
 public class FacilityController : ControllerBase
 {
+    
+    private readonly IFacilitiesService _facilitiesService;
+
+    public FacilityController(IFacilitiesService facilitiesService)
+    {
+        _facilitiesService = facilitiesService;
+    }
+
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateFacilityDto request, CancellationToken cancellationToken)
     {
-        return Ok("Facility was created");
+        var result = await _facilitiesService.Create(request, cancellationToken);
+        if (result.IsFailure)
+        {
+            return result.Error.ToResponse();
+        }
+        
+        return Ok(result.Value);
     }
 
     [HttpGet]

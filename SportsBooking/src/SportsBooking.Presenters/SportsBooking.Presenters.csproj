@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   
     <ItemGroup>
+      <ProjectReference Include="..\SportsBooking.Application\SportsBooking.Application.csproj" />
       <ProjectReference Include="..\SportsBooking.Contracts\SportsBooking.Contracts.csproj" />
       <ProjectReference Include="..\SportsBooking.Domain\SportsBooking.Domain.csproj" />
     </ItemGroup>

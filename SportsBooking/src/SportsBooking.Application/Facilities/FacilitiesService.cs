@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using CSharpFunctionalExtensions;
+using FluentValidation;
 using Microsoft.Extensions.Logging;
 using SportsBooking.Application.Extentions;
 using SportsBooking.Application.Facilities.Exceptions;
@@ -34,21 +35,22 @@ public class FacilitiesService : IFacilitiesService
         _reviewsRepository = reviewsRepository;
     }
     
-    public async Task Create(CreateFacilityDto facilityDto, CancellationToken cancellationToken)
-    {
+    public async Task<Result<Guid, Failure>> Create(CreateFacilityDto facilityDto, CancellationToken cancellationToken)
+    {   
         // валидация входных данных
         var validationResult = await _facilityValidator.ValidateAsync(facilityDto, cancellationToken);
         if (!validationResult.IsValid)
         {
-            var errors = validationResult.ToErrors();
-            throw new FacilityValidationException(errors);
+            return validationResult.ToErrors();
+            // throw new FacilityValidationException(errors);
         }
         
         // бизнес валидация
         int countUserFacilities = await _facilitiesRepository.GetOpenFacilitiesAsync(facilityDto.CreatorId);
         if (countUserFacilities >= 5)
         {
-            throw new TooManyFacilitiesException();
+            return Errors.Facilities.TooManyFacilities().ToFailure();
+            // throw new TooManyFacilitiesException();
         }
         
         var sportTypes = facilityDto.SportTypeIds
@@ -77,6 +79,8 @@ public class FacilitiesService : IFacilitiesService
 
         // Логирование об успешном или неуспешном сохранении
         _logger.LogInformation($"Facility {facilityId} has been created.", facilityId);
+
+        return facilityId;
     }
 
     public async Task AddReview(Guid facilityId, AddReviewDto reviewDto, CancellationToken cancellationToken)
@@ -127,7 +131,7 @@ public class FacilitiesService : IFacilitiesService
 
 public interface IFacilitiesService
 {
-    Task Create(CreateFacilityDto facilityDto, CancellationToken cancellationToken);
+    Task<Result<Guid, Failure>> Create(CreateFacilityDto facilityDto, CancellationToken cancellationToken);
     
     Task AddReview(Guid id, AddReviewDto reviewDto, CancellationToken cancellationToken);
     
