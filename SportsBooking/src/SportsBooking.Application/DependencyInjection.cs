@@ -13,14 +13,20 @@ public static class DependencyInjection
     {
         services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
 
-        services.AddScoped<ICommandHandler<Guid, CreateFacilityCommand>, CreateFacilityHandler>();
-        services.AddScoped<ICommandHandler<Guid, AddReviewCommand>, AddReviewHandler>();
+        services.AddScoped<ICommandHandler<Guid, CreateFacilityCommand>, CreateFacilityCommandHandler>();
+        services.AddScoped<ICommandHandler<Guid, AddReviewCommand>, AddReviewCommandHandler>();
         
-        var assembly = typeof(CreateFacilityHandler).Assembly;
+        var assembly = typeof(CreateFacilityCommandHandler).Assembly;
         
         services.Scan(scan => scan.FromAssemblies(assembly)
             .AddClasses(classes => classes
                 .AssignableToAny(typeof(ICommandHandler<,>), typeof(ICommandHandler<>)))
+            .AsSelfWithInterfaces()
+            .WithScopedLifetime());
+        
+        services.Scan(scan => scan.FromAssemblies(assembly)
+            .AddClasses(classes => classes
+                .AssignableToAny(typeof(IQueryHandler<,>)))
             .AsSelfWithInterfaces()
             .WithScopedLifetime());
         

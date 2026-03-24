@@ -9,18 +9,18 @@ using SportsBooking.Shared;
 
 namespace SportsBooking.Application.Facilities.AddReview;
 
-public class AddReviewHandler : ICommandHandler<Guid, AddReviewCommand>
+public class AddReviewCommandHandler : ICommandHandler<Guid, AddReviewCommand>
 {
     private readonly IFacilitiesRepository _facilitiesRepository;
     private readonly IReviewsRepository _reviewsRepository;
     private readonly IValidator<AddReviewDto> _validator;
-    private readonly ILogger<AddReviewHandler> _logger;
+    private readonly ILogger<AddReviewCommandHandler> _logger;
 
-    public AddReviewHandler(
+    public AddReviewCommandHandler(
         IFacilitiesRepository facilitiesRepository,
         IReviewsRepository reviewsRepository,
         IValidator<AddReviewDto> validator,
-        ILogger<AddReviewHandler> logger)
+        ILogger<AddReviewCommandHandler> logger)
     {
         _facilitiesRepository = facilitiesRepository;
         _validator = validator;

@@ -6,25 +6,25 @@ namespace SportsBooking.Infrastructure.Postgres.Repositories;
 
 public class FacilitiesEfCoreRepository : IFacilitiesRepository
 {
-    private readonly FacilitiesDbContext _dbContext;
+    private readonly FacilitiesReadDbContext _readDbContext;
 
-    public FacilitiesEfCoreRepository(FacilitiesDbContext dbContext)
+    public FacilitiesEfCoreRepository(FacilitiesReadDbContext readDbContext)
     {
-        _dbContext = dbContext;
+        _readDbContext = readDbContext;
     }
     
     public async Task<Guid> AddAsync(Facility facility, CancellationToken cancellationToken = default)
     {
-        await _dbContext.AddAsync(facility, cancellationToken);
+        await _readDbContext.AddAsync(facility, cancellationToken);
 
-        await _dbContext.SaveChangesAsync(cancellationToken);
+        await _readDbContext.SaveChangesAsync(cancellationToken);
         
         return facility.Id;
     }
 
     public async Task<int> GetOpenFacilitiesAsync(Guid creatorId, CancellationToken cancellationToken = default)
     {
-        var facilities = await _dbContext.Facilities
+        var facilities = await _readDbContext.Facilities
             .Where(f => f.Id == creatorId)
             .ToListAsync(cancellationToken);
 
@@ -33,7 +33,7 @@ public class FacilitiesEfCoreRepository : IFacilitiesRepository
 
     public async Task<Facility> GetFacilityById(Guid creatorId, CancellationToken cancellationToken = default)
     {
-        var facility = await _dbContext.Facilities
+        var facility = await _readDbContext.Facilities
             .Include(f => f.SportTypes)
             .Include(f => f.FacilityServices)
             .FirstOrDefaultAsync(f => f.Id == creatorId, cancellationToken);

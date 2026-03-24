@@ -1,4 +1,4 @@
-﻿namespace SportsBooking.Contracts.Facility;
+﻿namespace SportsBooking.Contracts.Facility.Dtos;
 
 public record CreateFacilityDto(
     Guid CreatorId,

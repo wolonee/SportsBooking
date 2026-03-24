@@ -5,21 +5,22 @@ using SportsBooking.Application.Abstractions;
 using SportsBooking.Application.Extentions;
 using SportsBooking.Application.Facilities.Exceptions;
 using SportsBooking.Contracts.Facility;
+using SportsBooking.Contracts.Facility.Dtos;
 using SportsBooking.Domain.Facilities;
 using SportsBooking.Shared;
 
 namespace SportsBooking.Application.Facilities.CreateFacility;
 
-public class CreateFacilityHandler : ICommandHandler<Guid, CreateFacilityCommand>
+public class CreateFacilityCommandHandler : ICommandHandler<Guid, CreateFacilityCommand>
 {
     private readonly IFacilitiesRepository _facilitiesRepository;
     private readonly IValidator<CreateFacilityDto> _validator;
-    private readonly ILogger<CreateFacilityHandler> _logger;
+    private readonly ILogger<CreateFacilityCommandHandler> _logger;
 
-    public CreateFacilityHandler(
+    public CreateFacilityCommandHandler(
         IFacilitiesRepository facilitiesRepository,
         IValidator<CreateFacilityDto> validator, 
-        ILogger<CreateFacilityHandler> logger)
+        ILogger<CreateFacilityCommandHandler> logger)
     {
         _facilitiesRepository = facilitiesRepository;
         _validator = validator;

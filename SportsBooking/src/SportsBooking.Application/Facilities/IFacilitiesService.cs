@@ -1,5 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 using SportsBooking.Contracts.Facility;
+using SportsBooking.Contracts.Facility.Dtos;
 using SportsBooking.Contracts.Review;
 using SportsBooking.Shared;
 

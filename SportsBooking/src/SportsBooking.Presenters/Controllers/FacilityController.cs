@@ -5,6 +5,7 @@ using SportsBooking.Application.Facilities.AddReview;
 using SportsBooking.Application.Facilities.CreateFacility;
 using SportsBooking.Contracts;
 using SportsBooking.Contracts.Facility;
+using SportsBooking.Contracts.Facility.Dtos;
 using SportsBooking.Contracts.Review;
 using SportsBooking.Contracts.Shedule;
 using SportsBooking.Presenters.ResponseExtentions;
@@ -18,13 +19,13 @@ public class FacilityController : ControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> Create(
-        [FromServices] ICommandHandler<Guid, CreateFacilityCommand> handler,
+        [FromServices] ICommandHandler<Guid, CreateFacilityCommand> commandHandler,
         [FromBody] CreateFacilityDto request, 
         CancellationToken cancellationToken)
     {
         var command = new CreateFacilityCommand(request);
         
-        var result = await handler.Handle(command, cancellationToken);
+        var result = await commandHandler.Handle(command, cancellationToken);
         if (result.IsFailure)
         {
             return result.Error.ToResponse();
@@ -55,12 +56,12 @@ public class FacilityController : ControllerBase
     public async Task<IActionResult> AddReview(
         [FromRoute] Guid id, 
         [FromBody] AddReviewDto request,
-        [FromServices] ICommandHandler<Guid, AddReviewCommand> handler,
+        [FromServices] ICommandHandler<Guid, AddReviewCommand> commandHandler,
         CancellationToken cancellationToken)
     {
         var command = new AddReviewCommand(id, request);
 
-        var result = await handler.Handle(command, cancellationToken);
+        var result = await commandHandler.Handle(command, cancellationToken);
         if (result.IsFailure)
         {
             return result.Error.ToResponse();
