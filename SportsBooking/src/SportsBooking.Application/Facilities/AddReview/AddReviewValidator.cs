@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using SportsBooking.Contracts.Review;
 
-namespace SportsBooking.Application.Facilities.Validators;
+namespace SportsBooking.Application.Facilities.AddReview;
 
 public class AddReviewValidator : AbstractValidator<AddReviewDto>
 {
