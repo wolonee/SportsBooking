@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using SportsBooking.Contracts.Facility;
 
-namespace SportsBooking.Application.Facilities.Validators;
+namespace SportsBooking.Application.Facilities.CreateFacility;
 
 public class CreateFacilityValidator : AbstractValidator<CreateFacilityDto>
 {

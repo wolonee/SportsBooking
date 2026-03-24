@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using SportsBooking.Application.Abstractions;
 using SportsBooking.Application.Facilities;
+using SportsBooking.Application.Facilities.AddReview;
+using SportsBooking.Application.Facilities.CreateFacility;
 using SportsBooking.Contracts;
 using SportsBooking.Contracts.Facility;
 using SportsBooking.Contracts.Review;
@@ -13,19 +16,15 @@ namespace SportsBooking.Presenters.Controllers;
 [Route("[controller]")]
 public class FacilityController : ControllerBase
 {
-    
-    private readonly IFacilitiesService _facilitiesService;
-
-    public FacilityController(IFacilitiesService facilitiesService)
-    {
-        _facilitiesService = facilitiesService;
-    }
-
-
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateFacilityDto request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Create(
+        [FromServices] ICommandHandler<Guid, CreateFacilityCommand> handler,
+        [FromBody] CreateFacilityDto request, 
+        CancellationToken cancellationToken)
     {
-        var result = await _facilitiesService.Create(request, cancellationToken);
+        var command = new CreateFacilityCommand(request);
+        
+        var result = await handler.Handle(command, cancellationToken);
         if (result.IsFailure)
         {
             return result.Error.ToResponse();
@@ -53,10 +52,21 @@ public class FacilityController : ControllerBase
     }
     
     [HttpPost("{id:guid}/review")]
-    public async Task<IActionResult> AddReview([FromRoute] Guid id, [FromBody] AddReviewDto request,
+    public async Task<IActionResult> AddReview(
+        [FromRoute] Guid id, 
+        [FromBody] AddReviewDto request,
+        [FromServices] ICommandHandler<Guid, AddReviewCommand> handler,
         CancellationToken cancellationToken)
     {
-        return Ok("Review was added");
+        var command = new AddReviewCommand(id, request);
+
+        var result = await handler.Handle(command, cancellationToken);
+        if (result.IsFailure)
+        {
+            return result.Error.ToResponse();
+        }
+        
+        return Ok($"Review {result.Value} was added");
     }
 
     [HttpPut]
